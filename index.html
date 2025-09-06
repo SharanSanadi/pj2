@@ -1,136 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF‑8" />
-  <meta name="viewport" content="width=device‑width, initial‑scale=1.0" />
-  <title>GST Rates: Old vs New (Effective from Sept 22, 2025)</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f7f1e3, #fffae6);
-      color: #333;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #d35400;
-      text-shadow: 1px 1px 2px #999;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 12px 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background: #d35400;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-    .negative {
-      color: green;
-      font-weight: bold;
-    }
-    .positive {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GST Updates Hub</title>
+  <link rel="stylesheet" href="index1.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>GST Rate Comparison: Old vs New (from Sept 22, 2025)</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Category / Item</th>
-        <th>Old GST Rate</th>
-        <th>New GST Rate</th>
-        <th>Difference</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Essentials & Food -->
-      <tr>
-        <td>Chapati, Roti, Paratha, Paneer, UHT Milk</td>
-        <td>5%</td>
-        <td>0%</td>
-        <td class="negative">–5%</td>
-      </tr>
-      <tr>
-        <td>Packaged Food (butter, ghee, noodles, chocolates, sauces)</td>
-        <td>12–18%</td>
-        <td>5%</td>
-        <td class="negative">–7‑13%</td>
-      </tr>
-      <!-- Household & Personal Care -->
-      <tr>
-        <td>Toiletries, shampoo, toothpaste, hair oil</td>
-        <td>12–18%</td>
-        <td>5%</td>
-        <td class="negative">–7‑13%</td>
-      </tr>
-      <tr>
-        <td>Utensils, furniture, toys, handicrafts</td>
-        <td>12–18%</td>
-        <td>5%</td>
-        <td class="negative">–7‑13%</td>
-      </tr>
-      <!-- Education & Stationery -->
-      <tr>
-        <td>Notebooks, maps, charts, globes, erasers, crayons</td>
-        <td>5–12%</td>
-        <td>0%</td>
-        <td class="negative">–5‑12%</td>
-      </tr>
-      <!-- Healthcare & Insurance -->
-      <tr>
-        <td>Life & health insurance (individual)</td>
-        <td>18%</td>
-        <td>0%</td>
-        <td class="negative">–18%</td>
-      </tr>
-      <tr>
-        <td>Medical devices, spectacles, diagnostic kits</td>
-        <td>12–18%</td>
-        <td>5%</td>
-        <td class="negative">–7‑13%</td>
-      </tr>
-      <!-- Automobiles & Electronics -->
-      <tr>
-        <td>Small cars & motorbikes (≤350 cc, ≤1200 cc cars)</td>
-        <td>28%</td>
-        <td>18%</td>
-        <td class="negative">–10%</td>
-      </tr>
-      <tr>
-        <td>ACs, TVs, dishwashers, cement</td>
-        <td>28%</td>
-        <td>18%</td>
-        <td class="negative">–10%</td>
-      </tr>
-      <!-- Agriculture -->
-      <tr>
-        <td>Tractors, irrigation, farm machinery</td>
-        <td>12%</td>
-        <td>5%</td>
-        <td class="negative">–7%</td>
-      </tr>
-      <!-- Luxury & Sin Goods -->
-      <tr>
-        <td>Luxury cars, bikes >350 cc, airplanes, yachts, tobacco, aerated drinks</td>
-        <td>28% + cess</td>
-        <td>40%</td>
-        <td class="positive">+12% (+cess removed)</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="https://images.unsplash.com/photo-1567427013953-1fef9a8c6b02?q=80&w=1200&auto=format&fit=crop" alt="GST" class="brand-logo" />
+      <div>
+        <h1 class="brand-title">GST Updates Hub</h1>
+        <p class="brand-tag">Track changes • Understand impact • Stay compliant</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-btn" data-route="home">Home</button>
+      <button class="nav-btn" data-route="reviews">Reviews</button>
+      <button class="nav-btn" data-route="login">Login</button>
+      <button id="themeToggle" class="nav-btn ghost" aria-label="Toggle Theme">🌓</button>
+    </nav>
+  </header>
+
+  <!-- User bar -->
+  <section class="userbar" id="userBar">
+    <span id="welcomeText">Welcome, Guest</span>
+    <button id="logoutBtn" class="chip hide">Log out</button>
+  </section>
+
+  <!-- Router Views -->
+  <main id="app">
+    <!-- HOME -->
+    <section id="view-home" class="view active" role="region" aria-labelledby="home-heading">
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Tax planning" />
+        <div class="hero-text">
+          <h2 id="home-heading">Recent GST Changes on Key Items</h2>
+          <p>Browse a clear, item-wise list of GST revisions with old vs new rates and quick notes.</p>
+          <a href="#reviews" class="btn" data-route="reviews">See People’s Reviews</a>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="toolbar">
+        <input type="search" id="searchBox" placeholder="Search item (e.g., mobile, hotel, food)…" />
+        <select id="rateFilter">
+          <option value="all">All Rates</option>
+          <option value="0">0%</option>
+          <option value="5">5%</option>
+          <option value="12">12%</option>
+          <option value="18">18%</option>
+          <option value="28">28%</option>
+        </select>
+        <button id="resetFilters" class="ghost">Reset</button>
+      </div>
+
+      <!-- Items Grid -->
+      <section id="itemsGrid" class="grid"></section>
+
+      <!-- Table view -->
+      <div class="table-wrap">
+        <h3>Quick Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Old GST</th>
+              <th>New GST</th>
+              <th>Change</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="itemsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="view-reviews" class="view" role="region" aria-labelledby="reviews-heading">
+      <div class="hero slim">
+        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1600&auto=format&fit=crop" alt="Community discussion" />
+        <div class="hero-text">
+          <h2 id="reviews-heading">Community Reviews on GST Changes</h2>
+          <p>Share helpful, respectful opinions. We allow only healthy conversation.</p>
+        </div>
+      </div>
+
+      <form id="reviewForm" class="card">
+        <div class="row">
+          <input type="text" id="revName" placeholder="Your name" required />
+          <select id="revItem" required></select>
+          <select id="revRating" required>
+            <option value="">Rating</option>
+            <option>⭐</option>
+            <option>⭐⭐</option>
+            <option>⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐⭐</option>
+          </select>
+        </div>
+        <textarea id="revText" rows="4" placeholder="Write a constructive review (no insults, hate, threats, spam)…" required></textarea>
+        <div class="row between">
+          <label class="tiny">Moderation: toxic/abusive content is blocked.</label>
+          <button class="btn" type="submit">Post Review</button>
+        </div>
+        <p id="revError" class="error hide"></p>
+      </form>
+
+      <section id="reviewsList" class="list"></section>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="view-login" class="view" role="region" aria-labelledby="login-heading">
+      <div class="login-card">
+        <h2 id="login-heading">Login</h2>
+        <p class="muted">Demo login (client-side only)</p>
+        <form id="loginForm">
+          <label>
+            <span>Username</span>
+            <input type="text" id="username" required placeholder="Enter username" />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" id="password" required placeholder="Enter password" />
+          </label>
+          <button type="submit" class="btn wide">Sign In</button>
+          <p id="loginError" class="error hide"></p>
+        </form>
+        <p class="tiny muted">Tip: Any username + any password 6+ chars will “log in”.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chatbot -->
+  <button id="chatToggle" class="chat-toggle" aria-label="Open chatbot">💬</button>
+  <section id="chatbot" class="chatbot hide" aria-live="polite">
+    <header class="chat-head">
+      <h3>GST Chatbot</h3>
+      <button id="chatClose" class="ghost">✕</button>
+    </header>
+    <div id="chatBody" class="chat-body">
+      <div class="bot">Hi! Ask me about GST rates and changes for items in the list.</div>
+    </div>
+    <form id="chatForm" class="chat-input">
+      <input id="chatText" type="text" placeholder="e.g., What's the GST on mobile phones now?" required />
+      <button class="btn">Send</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>Images from Unsplash (free to use). This is a demo educational site.</p>
+  </footer>
+
+  <script src="index2.js"></script>
 </body>
 </html>
